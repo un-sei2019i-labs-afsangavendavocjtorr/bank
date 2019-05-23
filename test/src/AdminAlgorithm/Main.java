@@ -1,4 +1,4 @@
-package AdminAlgorithm;
+dpackage AdminAlgorithm;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -150,8 +150,45 @@ public class Main {
 
     }
 
-    private static void deleteAccount() {
+    private static void changeBalanceAux(int account, double newBalance) throws Exception {
+        if (newBalance < 0) {
+            throw new Exception();
+        }
+        if (account < 0 || account > database.size()) {
+            throw new Exception();
+        }
+        Account theaccount = searchAccount(account);
+        theaccount.setBalance(newBalance);
 
+    }
+    
+    private static Account searchAccount(int account){
+        for(int i = 0; i < database.size(); i++){
+            if(database.get(i).accountNumber == account)
+                return database.get(i);
+        }
+        return null;
+    }
+
+    private static void deleteAccount() {
+        boolean ok = false;
+        Scanner in = new Scanner(System.in);
+        do {
+            System.out.println("Ingrese por favor el numero de la cuenta");
+            String numberAccount = in.next();
+            if (numberAccount.length() != 4) {
+                System.out.println("La cuenta debe tener 4 digitos");
+            } else {
+                try {
+                    database.remove(searchAccount(Integer.parseInt(numberAccount)));
+                    System.out.println("la cuenta ha sido eliminada con exito");
+                    ok = true;
+                } catch (Exception e) {
+                    System.out.println("No se pudo realizar la operacion");
+                }
+
+            }
+        } while (!ok);
     }
 
     private static boolean doesAccountExists(int accountNumber) {
@@ -161,18 +198,6 @@ public class Main {
             }
         }
         return false;
-
-    }
-
-    private static void changeBalanceAux(int account, double newBalance) throws Exception {
-        if (newBalance < 0) {
-            throw new Exception();
-        }
-        if (account < 0 || account > database.size()) {
-            throw new Exception();
-        }
-        Account theaccount = database.get(account);
-        theaccount.setBalance(newBalance);
 
     }
 
