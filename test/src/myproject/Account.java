@@ -4,7 +4,7 @@ public class Account {
 	private int accountNumber;
 	private double balance;
 	
-	public Account (int accountNumber, int balance) {
+	public Account (int accountNumber, double balance) {
 		this.balance = balance;
 		this.accountNumber = accountNumber;
 	}
