@@ -25,6 +25,8 @@ public class Account {
 		this.balance = balance;
 	}
 	
-	
+	public String toString(){
+            return "Number: "+this.accountNumber+" Balance : "+this.balance;
+        }
 	
 }
