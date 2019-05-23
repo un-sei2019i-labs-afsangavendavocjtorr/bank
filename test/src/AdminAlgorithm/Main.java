@@ -1,4 +1,4 @@
-dpackage AdminAlgorithm;
+package AdminAlgorithm;
 
 import java.util.ArrayList;
 import java.util.Locale;
