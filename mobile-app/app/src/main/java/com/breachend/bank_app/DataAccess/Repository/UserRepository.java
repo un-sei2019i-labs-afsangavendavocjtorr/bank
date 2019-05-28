@@ -17,7 +17,7 @@ public class UserRepository {
         this.bankDatabase = new BankDatabase(context);
     }
 
-    public void create(UserModel user){
+    public UserModel create(UserModel user){
         SQLiteDatabase database = this.bankDatabase.getWritableDatabase();
         ContentValues userValues = new ContentValues();
 
@@ -28,6 +28,8 @@ public class UserRepository {
         userValues.put(userFileds[UsersFields.Password.Val()], user.getPassword());
 
         database.insert(BankDatabase.TABLES[userTable], null, userValues);
+
+        return user;
     }
 
     public UserModel getById(int id){

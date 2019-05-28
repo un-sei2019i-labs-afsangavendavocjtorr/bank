@@ -17,8 +17,7 @@ public class UserController {
 
     public UserModel register(String email, String password){
         if(validateEmail(email) && validatePassword(password)){
-            this.userRepository.create(new UserModel(email, password));
-            return new UserModel(email, password);
+            return this.userRepository.create(new UserModel(email, password));
         }else{
             return null;
         }
