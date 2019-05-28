@@ -28,7 +28,10 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.breachend.bank_app.BusinessLogic.Controllers.UserController;
+import com.breachend.bank_app.DataAccess.Model.User.UserModel;
 import com.breachend.bank_app.R;
 
 import java.util.ArrayList;
@@ -63,10 +66,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private UserController userController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        userController = new UserController(this);
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -184,11 +189,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // form field with an error.
             focusView.requestFocus();
         } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            UserModel user = userController.loginOrRegister(email, password);
+            if(user != null){
+                Toast.makeText(this, "Pepe in login", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

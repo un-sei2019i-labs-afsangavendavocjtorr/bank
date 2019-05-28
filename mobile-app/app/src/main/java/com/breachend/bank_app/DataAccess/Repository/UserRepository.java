@@ -24,7 +24,6 @@ public class UserRepository {
         int userTable = Tables.Users.Val();
         String[] userFileds = BankDatabase.FIELDS[userTable];
 
-        userValues.put(userFileds[UsersFields.Name.Val()], user.getName());
         userValues.put(userFileds[UsersFields.Email.Val()], user.getEmail());
         userValues.put(userFileds[UsersFields.Password.Val()], user.getPassword());
 
@@ -37,7 +36,6 @@ public class UserRepository {
         if(queryResult.moveToFirst()){
             return new UserModel(
                     queryResult.getInt(UsersFields.Id.Val()),
-                    queryResult.getString(UsersFields.Name.Val()),
                     queryResult.getString(UsersFields.Email.Val()),
                     queryResult.getString(UsersFields.Password.Val())
                     );
@@ -50,7 +48,6 @@ public class UserRepository {
         if(queryResult.moveToFirst()){
             return new UserModel(
                     queryResult.getInt(UsersFields.Id.Val()),
-                    queryResult.getString(UsersFields.Name.Val()),
                     queryResult.getString(UsersFields.Email.Val()),
                     queryResult.getString(UsersFields.Password.Val())
             );
