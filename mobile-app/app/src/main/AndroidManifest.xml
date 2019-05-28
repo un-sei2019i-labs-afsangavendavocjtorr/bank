@@ -24,9 +24,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Presentation.Activities.WelcomeActivity" />
-        <activity
-            android:name=".RegisterActivity"
-            android:label="@string/title_activity_register"></activity>
     </application>
 
 </manifest>

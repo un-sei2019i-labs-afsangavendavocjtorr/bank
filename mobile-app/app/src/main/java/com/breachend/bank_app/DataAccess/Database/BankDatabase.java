@@ -18,15 +18,15 @@ public class BankDatabase extends SQLiteOpenHelper{
     public static String[] TABLES = {"USERS"};
 
     public static String[][] FIELDS = {
-            {"ID", "NAME", "EMAIL", "PASSWORD"}
+            {"ID", "EMAIL", "PASSWORD"}
     };
 
     public static String[][] FIELDS_DATA_TYPES = {
-            {"INTEGER PRIMARY KEY AUTOINCREMENT", "VARCHAR(100) NOT NULL", "VARCHAR(100) UNIQUE NOT NULL", "VARCHAR(100) NOT NULL"}
+            {"INTEGER PRIMARY KEY AUTOINCREMENT", "VARCHAR(100) UNIQUE NOT NULL", "VARCHAR(100) NOT NULL"}
     };
 
     public static String[] CREATE_TABLE = {
-            "CREATE TABLE %s (%s %s, %s %s, %s %s, %s %s);"
+            "CREATE TABLE %s (%s %s, %s %s, %s %s);"
     };
 
     public static String[] DROP_TABLE = {
@@ -34,7 +34,7 @@ public class BankDatabase extends SQLiteOpenHelper{
     };
 
     private static String[] SELECT = {
-            "SELECT * FROM %s WHERE %s = %i;",
+            "SELECT * FROM %s WHERE %s = %d;",
             "SELECT * FROM %s WHERE %s = '%s';"
     };
 
@@ -60,7 +60,7 @@ public class BankDatabase extends SQLiteOpenHelper{
         int userTable = Tables.Users.Val();
         String[] userFields = FIELDS[userTable];
         return String.format(
-                SELECT[UsersQueries.SelectByEmil.Val()],
+                SELECT[UsersQueries.SelectByEmail.Val()],
                 TABLES[userTable],
                 userFields[UsersFields.Email.Val()], email
         );
@@ -75,7 +75,6 @@ public class BankDatabase extends SQLiteOpenHelper{
                 CREATE_TABLE[usersTable],
                 TABLES[usersTable],
                 fields[UsersFields.Id.Val()], dataTypes[UsersFields.Id.Val()],
-                fields[UsersFields.Name.Val()], dataTypes[UsersFields.Name.Val()],
                 fields[UsersFields.Email.Val()], dataTypes[UsersFields.Email.Val()],
                 fields[UsersFields.Password.Val()], dataTypes[UsersFields.Password.Val()]
                 )
