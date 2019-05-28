@@ -2,7 +2,7 @@ package com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableQueries;
 
 public enum UsersQueries {
     SelectById(0),
-    SelectByEmil(1);
+    SelectByEmail(1);
 
     private int value;
 

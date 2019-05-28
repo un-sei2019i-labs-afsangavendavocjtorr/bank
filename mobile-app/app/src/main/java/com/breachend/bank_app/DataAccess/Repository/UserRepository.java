@@ -17,18 +17,19 @@ public class UserRepository {
         this.bankDatabase = new BankDatabase(context);
     }
 
-    public void create(UserModel user){
+    public UserModel create(UserModel user){
         SQLiteDatabase database = this.bankDatabase.getWritableDatabase();
         ContentValues userValues = new ContentValues();
 
         int userTable = Tables.Users.Val();
         String[] userFileds = BankDatabase.FIELDS[userTable];
 
-        userValues.put(userFileds[UsersFields.Name.Val()], user.getName());
         userValues.put(userFileds[UsersFields.Email.Val()], user.getEmail());
         userValues.put(userFileds[UsersFields.Password.Val()], user.getPassword());
 
         database.insert(BankDatabase.TABLES[userTable], null, userValues);
+
+        return user;
     }
 
     public UserModel getById(int id){
@@ -37,7 +38,6 @@ public class UserRepository {
         if(queryResult.moveToFirst()){
             return new UserModel(
                     queryResult.getInt(UsersFields.Id.Val()),
-                    queryResult.getString(UsersFields.Name.Val()),
                     queryResult.getString(UsersFields.Email.Val()),
                     queryResult.getString(UsersFields.Password.Val())
                     );
@@ -50,7 +50,6 @@ public class UserRepository {
         if(queryResult.moveToFirst()){
             return new UserModel(
                     queryResult.getInt(UsersFields.Id.Val()),
-                    queryResult.getString(UsersFields.Name.Val()),
                     queryResult.getString(UsersFields.Email.Val()),
                     queryResult.getString(UsersFields.Password.Val())
             );
