@@ -1,8 +1,10 @@
 # Git flow
 
 This is a project for the software engineering class.  
-In this project they worked:
+In this project worked:
 
 - jtorresf
 - afsanchezsa
 - gavendanoc
+
+> Thanks
