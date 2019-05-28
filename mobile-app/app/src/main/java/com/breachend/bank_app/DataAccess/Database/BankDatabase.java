@@ -35,7 +35,8 @@ public class BankDatabase extends SQLiteOpenHelper{
 
     private static String[] SELECT = {
             "SELECT * FROM %s WHERE %s = %d;",
-            "SELECT * FROM %s WHERE %s = '%s';"
+            "SELECT * FROM %s WHERE %s = '%s';",
+            "SELECT * FROM %s;"
     };
 
     public BankDatabase(Context context) {
@@ -63,6 +64,15 @@ public class BankDatabase extends SQLiteOpenHelper{
                 SELECT[UsersQueries.SelectByEmail.Val()],
                 TABLES[userTable],
                 userFields[UsersFields.Email.Val()], email
+        );
+    }
+
+    public static String selectAll(){
+        int userTable = Tables.Users.Val();
+        String[] userFields = FIELDS[userTable];
+        return String.format(
+                SELECT[UsersQueries.SelectAll.Val()],
+                TABLES[userTable]
         );
     }
 

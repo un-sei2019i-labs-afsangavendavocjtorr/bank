@@ -1,5 +1,6 @@
 package com.breachend.bank_app.Presentation.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -83,7 +84,10 @@ public class LoginActivity extends AppCompatActivity{
         } else {
             UserModel user = userController.loginOrRegister(email, password);
             if(user != null){
-                Toast.makeText(this, "Pepe in login", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Login!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, WelcomeActivity.class);
+                intent.putExtra("email",user.getEmail());
+                startActivity(intent);
             }
         }
     }
