@@ -10,6 +10,8 @@ import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields.User
 import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.Tables;
 import com.breachend.bank_app.DataAccess.Model.User.UserModel;
 
+import java.util.ArrayList;
+
 public class UserRepository {
     private BankDatabase bankDatabase;
 
@@ -55,5 +57,18 @@ public class UserRepository {
             );
         }
         return null;
+    }
+    public ArrayList<UserModel> getAll(){
+        SQLiteDatabase database = this.bankDatabase.getWritableDatabase();
+        Cursor queryResult = database.rawQuery(BankDatabase.selectAll(), null);
+        ArrayList<UserModel> users = new ArrayList<>();
+        while(queryResult.moveToNext()){
+            users.add( new UserModel(
+                    queryResult.getInt(UsersFields.Id.Val()),
+                    queryResult.getString(UsersFields.Email.Val()),
+                    queryResult.getString(UsersFields.Password.Val())
+            ));
+        }
+        return users;
     }
 }
