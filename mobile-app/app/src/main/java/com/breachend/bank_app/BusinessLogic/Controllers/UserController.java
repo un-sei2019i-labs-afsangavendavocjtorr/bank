@@ -6,6 +6,8 @@ import android.widget.Toast;
 import com.breachend.bank_app.DataAccess.Repositories.UserRepository;
 import com.breachend.bank_app.DataAccess.Models.UserModel;
 
+import java.util.ArrayList;
+
 public class UserController {
     private Context context;
     private UserRepository userRepository;
@@ -15,18 +17,19 @@ public class UserController {
         this.userRepository = new UserRepository(context);
     }
 
-    public void register(String name, String email, String password){
-        if(validateName(name) && validateEmail(email) && validatePassword(password)){
-            this.userRepository.create(new UserModel(name, email, password));
+    public UserModel register(String email, String password){
+        if(validateEmail(email) && validatePassword(password)){
+            return this.userRepository.create(new UserModel(email, password));
+        }else{
+            return null;
         }
     }
 
-    public UserModel Login(String email, String password){
+    public UserModel loginOrRegister(String email, String password){
         if(validateEmail(email) && validatePassword(password)){
             UserModel user = this.userRepository.getByEmail(email);
-            if(user != null){
-                Toast.makeText(context, "Incorrect email", Toast.LENGTH_SHORT).show();
-                return null;
+            if(user == null){
+                return register(email, password);
             }
             if (!user.getPassword().equals(password)){
                 Toast.makeText(context, "Incorrect password", Toast.LENGTH_SHORT).show();
@@ -38,11 +41,13 @@ public class UserController {
         }
     }
 
-    private boolean validateName(String name){
-        if(name.length() > 2)
-            return true;
-        Toast.makeText(context, "Please enter a name", Toast.LENGTH_SHORT).show();
-        return false;
+    public String[] getAllEmails(){
+        ArrayList<UserModel> users = this.userRepository.getAll();
+        String[] emailList = new String[users.size()];
+        for(int i = 0; i < users.size(); i++){
+            emailList[i] = users.get(i).getEmail();
+        }
+        return emailList;
     }
 
     private boolean validateEmail(String email){

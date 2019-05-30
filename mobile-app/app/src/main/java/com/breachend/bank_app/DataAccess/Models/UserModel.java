@@ -2,19 +2,16 @@ package com.breachend.bank_app.DataAccess.Models;
 
 public class UserModel {
     private int id;
-    private String name;
     private String email;
     private String password;
 
-    public UserModel(int id, String name, String email, String password) {
+    public UserModel(int id, String email, String password) {
         this.id = id;
-        this.name = name;
         this.email = email;
         this.password = password;
     }
 
-    public UserModel(String name, String email, String password) {
-        this.name = name;
+    public UserModel(String email, String password) {
         this.email = email;
         this.password = password;
     }
@@ -28,14 +25,6 @@ public class UserModel {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getEmail() {
