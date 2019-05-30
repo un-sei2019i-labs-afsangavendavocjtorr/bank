@@ -12,7 +12,7 @@ public enum UsersFields {
         this.value = value;
     }
 
-    public int Val(){
+    public int val(){
         return value;
     }
 }
