@@ -3,8 +3,8 @@ package com.breachend.bank_app.BusinessLogic.Controllers;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.breachend.bank_app.DataAccess.Repository.UserRepository;
-import com.breachend.bank_app.DataAccess.Model.User.UserModel;
+import com.breachend.bank_app.DataAccess.Repositories.UserRepository;
+import com.breachend.bank_app.DataAccess.Models.UserModel;
 
 public class UserController {
     private Context context;
