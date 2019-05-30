@@ -6,6 +6,8 @@ import android.widget.Toast;
 import com.breachend.bank_app.DataAccess.Repository.UserRepository;
 import com.breachend.bank_app.DataAccess.Model.User.UserModel;
 
+import java.util.ArrayList;
+
 public class UserController {
     private Context context;
     private UserRepository userRepository;
@@ -37,6 +39,15 @@ public class UserController {
         }else{
             return null;
         }
+    }
+
+    public String[] getAllEmails(){
+        ArrayList<UserModel> users = this.userRepository.getAll();
+        String[] emailList = new String[users.size()];
+        for(int i = 0; i < users.size(); i++){
+            emailList[i] = users.get(i).getEmail();
+        }
+        return emailList;
     }
 
     private boolean validateEmail(String email){
