@@ -15,29 +15,7 @@ public class BankDatabase extends SQLiteOpenHelper{
 
     public static int VERSION = 1;
 
-    public static String[] TABLES = {"USERS"};
 
-    public static String[][] FIELDS = {
-            {"ID", "EMAIL", "PASSWORD"}
-    };
-
-    public static String[][] FIELDS_DATA_TYPES = {
-            {"INTEGER PRIMARY KEY AUTOINCREMENT", "VARCHAR(100) UNIQUE NOT NULL", "VARCHAR(100) NOT NULL"}
-    };
-
-    public static String[] CREATE_TABLE = {
-            "CREATE TABLE %s (%s %s, %s %s, %s %s);"
-    };
-
-    public static String[] DROP_TABLE = {
-            "DROP TABLE IF EXISTS %s;"
-    };
-
-    private static String[] SELECT = {
-            "SELECT * FROM %s WHERE %s = %d;",
-            "SELECT * FROM %s WHERE %s = '%s';",
-            "SELECT * FROM %s;"
-    };
 
     public BankDatabase(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
@@ -48,47 +26,22 @@ public class BankDatabase extends SQLiteOpenHelper{
     }
 
     public static String selectById(int id){
-        int userTable = Tables.Users.val();
-        String[] userFields = FIELDS[userTable];
-        return String.format(
-                SELECT[UsersQueries.SelectById.val()],
-                TABLES[userTable],
-                userFields[UsersFields.Id.val()], id
-                );
+        Object[] args = {id};
+        return UsersQueries.SelectById.getFormat(args);
     }
 
     public static String selectByEmail(String email){
-        int userTable = Tables.Users.val();
-        String[] userFields = FIELDS[userTable];
-        return String.format(
-                SELECT[UsersQueries.SelectByEmail.val()],
-                TABLES[userTable],
-                userFields[UsersFields.Email.val()], email
-        );
+        Object[] args = {email};
+        return UsersQueries.SelectByEmail.getFormat(args);
     }
 
     public static String selectAll(){
-        int userTable = Tables.Users.val();
-        String[] userFields = FIELDS[userTable];
-        return String.format(
-                SELECT[UsersQueries.SelectAll.val()],
-                TABLES[userTable]
-        );
+        return UsersQueries.SelectAll.getFormat(null);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        int usersTable = Tables.Users.val();
-        String[] fields = FIELDS[usersTable];
-        String[] dataTypes = FIELDS_DATA_TYPES[usersTable];
-        db.execSQL(String.format(
-                CREATE_TABLE[usersTable],
-                TABLES[usersTable],
-                fields[UsersFields.Id.val()], dataTypes[UsersFields.Id.val()],
-                fields[UsersFields.Email.val()], dataTypes[UsersFields.Email.val()],
-                fields[UsersFields.Password.val()], dataTypes[UsersFields.Password.val()]
-                )
-        );
+        db.execSQL(UsersQueries.Create.getQuery());
     }
 
     @Override
@@ -98,8 +51,7 @@ public class BankDatabase extends SQLiteOpenHelper{
 
     public boolean restart(SQLiteDatabase db){
         try {
-            int usersTable = Tables.Users.val();
-            db.execSQL(String.format(DROP_TABLE[usersTable], TABLES[usersTable]));
+            db.execSQL(UsersQueries.Drop.getQuery());
             onCreate(db);
             return true;
         } catch (Exception e) {

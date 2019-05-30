@@ -1,17 +1,30 @@
 package com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableQueries;
 
+import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields.UsersFields;
+import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.Tables;
+
 public enum UsersQueries {
-    SelectById(0),
-    SelectByEmail(1),
-    SelectAll(2);
+    Create("CREATE TABLE "+ Tables.Users.getName() + " (" +
+            UsersFields.Id.getKey() + " "+UsersFields.Id.getDataType() + ", " +
+            UsersFields.Email.getKey() + " " + UsersFields.Email.getDataType() + ", " +
+            UsersFields.Password.getKey() + " " + UsersFields.Password.getDataType() +
+            ");"),
+    Drop("DROP TABLE IF EXISTS "+ Tables.Users.getName() +";"),
+    SelectById("SELECT * FROM "+ Tables.Users.getName() +" WHERE " + UsersFields.Id.getKey() + " = %d;"),
+    SelectByEmail("SELECT * FROM "+ Tables.Users.getName() +" WHERE " + UsersFields.Email.getKey() +" = '%s';"),
+    SelectAll("SELECT * FROM "+ Tables.Users.getName() +";");
 
-    private int value;
+    private String query;
 
-    UsersQueries(int value){
-        this.value = value;
+    UsersQueries(String query) {
+        this.query = query;
     }
 
-    public int val(){
-        return value;
+    public String getFormat(Object[] formatArgs) {
+        return String.format(query, formatArgs);
+    }
+
+    public String getQuery() {
+        return query;
     }
 }
