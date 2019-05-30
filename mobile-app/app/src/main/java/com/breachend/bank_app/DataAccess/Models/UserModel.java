@@ -1,4 +1,4 @@
-package com.breachend.bank_app.DataAccess.Model.User;
+package com.breachend.bank_app.DataAccess.Models;
 
 public class UserModel {
     private int id;

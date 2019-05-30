@@ -61,6 +61,11 @@ public class BankDatabase extends SQLiteOpenHelper{
         int userTable = Tables.Users.val();
         String[] userFields = FIELDS[userTable];
         return String.format(
+<<<<<<< HEAD
+                SELECT[UsersQueries.SelectByEmil.val()],
+                TABLES[userTable],
+                userFields[UsersFields.Email.val()], email
+=======
                 SELECT[UsersQueries.SelectByEmail.val()],
                 TABLES[userTable],
                 userFields[UsersFields.Email.val()], email
@@ -73,6 +78,7 @@ public class BankDatabase extends SQLiteOpenHelper{
         return String.format(
                 SELECT[UsersQueries.SelectAll.val()],
                 TABLES[userTable]
+>>>>>>> 77ecc233048f69edf378672e083488cedfcaffa5
         );
     }
 
@@ -85,6 +91,10 @@ public class BankDatabase extends SQLiteOpenHelper{
                 CREATE_TABLE[usersTable],
                 TABLES[usersTable],
                 fields[UsersFields.Id.val()], dataTypes[UsersFields.Id.val()],
+<<<<<<< HEAD
+                fields[UsersFields.Name.val()], dataTypes[UsersFields.Name.val()],
+=======
+>>>>>>> 77ecc233048f69edf378672e083488cedfcaffa5
                 fields[UsersFields.Email.val()], dataTypes[UsersFields.Email.val()],
                 fields[UsersFields.Password.val()], dataTypes[UsersFields.Password.val()]
                 )
