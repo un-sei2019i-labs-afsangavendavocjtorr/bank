@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.breachend.bank_app.DataAccess.Database.BankDatabase;
 import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields.UsersFields;
 import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.Tables;
-import com.breachend.bank_app.DataAccess.Model.User.UserModel;
+import com.breachend.bank_app.DataAccess.Models.UserModel;
 
 import java.util.ArrayList;
 

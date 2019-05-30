@@ -1,23 +1,12 @@
-package com.breachend.bank_app.DataAccess.Model.User;
+package com.breachend.bank_app.DataAccess.Models;
 
-public class UserModel {
+import java.util.Date;
+
+public class AdministratorModel {
     private int id;
     private String email;
     private String password;
-
-    public UserModel(int id, String email, String password) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-    }
-
-    public UserModel(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
-
-    public UserModel() {
-    }
+    private Date created;
 
     public int getId() {
         return id;
@@ -41,5 +30,13 @@ public class UserModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
 }
