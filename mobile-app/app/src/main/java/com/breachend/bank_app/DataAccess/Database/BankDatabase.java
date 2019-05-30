@@ -48,45 +48,45 @@ public class BankDatabase extends SQLiteOpenHelper{
     }
 
     public static String selectById(int id){
-        int userTable = Tables.Users.Val();
+        int userTable = Tables.Users.val();
         String[] userFields = FIELDS[userTable];
         return String.format(
-                SELECT[UsersQueries.SelectById.Val()],
+                SELECT[UsersQueries.SelectById.val()],
                 TABLES[userTable],
-                userFields[UsersFields.Id.Val()], id
+                userFields[UsersFields.Id.val()], id
                 );
     }
 
     public static String selectByEmail(String email){
-        int userTable = Tables.Users.Val();
+        int userTable = Tables.Users.val();
         String[] userFields = FIELDS[userTable];
         return String.format(
-                SELECT[UsersQueries.SelectByEmail.Val()],
+                SELECT[UsersQueries.SelectByEmail.val()],
                 TABLES[userTable],
-                userFields[UsersFields.Email.Val()], email
+                userFields[UsersFields.Email.val()], email
         );
     }
 
     public static String selectAll(){
-        int userTable = Tables.Users.Val();
+        int userTable = Tables.Users.val();
         String[] userFields = FIELDS[userTable];
         return String.format(
-                SELECT[UsersQueries.SelectAll.Val()],
+                SELECT[UsersQueries.SelectAll.val()],
                 TABLES[userTable]
         );
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        int usersTable = Tables.Users.Val();
+        int usersTable = Tables.Users.val();
         String[] fields = FIELDS[usersTable];
         String[] dataTypes = FIELDS_DATA_TYPES[usersTable];
         db.execSQL(String.format(
                 CREATE_TABLE[usersTable],
                 TABLES[usersTable],
-                fields[UsersFields.Id.Val()], dataTypes[UsersFields.Id.Val()],
-                fields[UsersFields.Email.Val()], dataTypes[UsersFields.Email.Val()],
-                fields[UsersFields.Password.Val()], dataTypes[UsersFields.Password.Val()]
+                fields[UsersFields.Id.val()], dataTypes[UsersFields.Id.val()],
+                fields[UsersFields.Email.val()], dataTypes[UsersFields.Email.val()],
+                fields[UsersFields.Password.val()], dataTypes[UsersFields.Password.val()]
                 )
         );
     }
@@ -98,7 +98,7 @@ public class BankDatabase extends SQLiteOpenHelper{
 
     public boolean restart(SQLiteDatabase db){
         try {
-            int usersTable = Tables.Users.Val();
+            int usersTable = Tables.Users.val();
             db.execSQL(String.format(DROP_TABLE[usersTable], TABLES[usersTable]));
             onCreate(db);
             return true;

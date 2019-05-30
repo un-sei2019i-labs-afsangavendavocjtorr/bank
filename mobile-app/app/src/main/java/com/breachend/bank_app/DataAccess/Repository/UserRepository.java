@@ -23,11 +23,11 @@ public class UserRepository {
         SQLiteDatabase database = this.bankDatabase.getWritableDatabase();
         ContentValues userValues = new ContentValues();
 
-        int userTable = Tables.Users.Val();
+        int userTable = Tables.Users.val();
         String[] userFileds = BankDatabase.FIELDS[userTable];
 
-        userValues.put(userFileds[UsersFields.Email.Val()], user.getEmail());
-        userValues.put(userFileds[UsersFields.Password.Val()], user.getPassword());
+        userValues.put(userFileds[UsersFields.Email.val()], user.getEmail());
+        userValues.put(userFileds[UsersFields.Password.val()], user.getPassword());
 
         database.insert(BankDatabase.TABLES[userTable], null, userValues);
 
@@ -39,9 +39,9 @@ public class UserRepository {
         Cursor queryResult = database.rawQuery(BankDatabase.selectById(id), null);
         if(queryResult.moveToFirst()){
             return new UserModel(
-                    queryResult.getInt(UsersFields.Id.Val()),
-                    queryResult.getString(UsersFields.Email.Val()),
-                    queryResult.getString(UsersFields.Password.Val())
+                    queryResult.getInt(UsersFields.Id.val()),
+                    queryResult.getString(UsersFields.Email.val()),
+                    queryResult.getString(UsersFields.Password.val())
                     );
         }
         return null;
@@ -51,9 +51,9 @@ public class UserRepository {
         Cursor queryResult = database.rawQuery(BankDatabase.selectByEmail(email), null);
         if(queryResult.moveToFirst()){
             return new UserModel(
-                    queryResult.getInt(UsersFields.Id.Val()),
-                    queryResult.getString(UsersFields.Email.Val()),
-                    queryResult.getString(UsersFields.Password.Val())
+                    queryResult.getInt(UsersFields.Id.val()),
+                    queryResult.getString(UsersFields.Email.val()),
+                    queryResult.getString(UsersFields.Password.val())
             );
         }
         return null;
@@ -64,9 +64,9 @@ public class UserRepository {
         ArrayList<UserModel> users = new ArrayList<>();
         while(queryResult.moveToNext()){
             users.add( new UserModel(
-                    queryResult.getInt(UsersFields.Id.Val()),
-                    queryResult.getString(UsersFields.Email.Val()),
-                    queryResult.getString(UsersFields.Password.Val())
+                    queryResult.getInt(UsersFields.Id.val()),
+                    queryResult.getString(UsersFields.Email.val()),
+                    queryResult.getString(UsersFields.Password.val())
             ));
         }
         return users;

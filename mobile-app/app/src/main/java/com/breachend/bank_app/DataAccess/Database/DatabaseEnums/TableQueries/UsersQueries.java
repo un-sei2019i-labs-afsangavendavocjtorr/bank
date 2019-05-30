@@ -11,7 +11,7 @@ public enum UsersQueries {
         this.value = value;
     }
 
-    public int Val(){
+    public int val(){
         return value;
     }
 }
