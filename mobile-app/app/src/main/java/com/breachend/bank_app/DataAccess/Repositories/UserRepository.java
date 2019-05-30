@@ -1,4 +1,4 @@
-package com.breachend.bank_app.DataAccess.Repository;
+package com.breachend.bank_app.DataAccess.Repositories;
 
 import android.content.ContentValues;
 import android.content.Context;
