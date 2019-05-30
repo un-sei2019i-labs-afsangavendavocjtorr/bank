@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.breachend.bank_app.BusinessLogic.Controllers.UserController;
-import com.breachend.bank_app.DataAccess.Model.User.UserModel;
+import com.breachend.bank_app.DataAccess.Models.UserModel;
 import com.breachend.bank_app.R;
 
 public class LoginActivity extends AppCompatActivity{

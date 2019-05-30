@@ -1,16 +1,15 @@
 package com.breachend.bank_app.DataAccess.Database.DatabaseEnums;
 
 public enum Tables {
-    Users(0);
+    Users("USERS");
 
-    private int value;
+    private String name;
 
-    Tables(int value){
-        this.value = value;
+    Tables(String name) {
+        this.name = name;
     }
 
-    public int val(){
-        return value;
+    public String getName() {
+        return name;
     }
-
 }
