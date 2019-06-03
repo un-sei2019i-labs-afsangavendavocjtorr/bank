@@ -10,7 +10,8 @@ public enum AccountQueries {
             AccountFields.ID_USER.getKey()+" "+AccountFields.ID_USER.getDataType()+" );"
     ),
 Drop("DROP TABLE IF EXISTS "+ Tables.Account_Data.getName() +";"),
-    SelectByIdUser("SELECT * FROM "+Tables.Account_Data+" where "+AccountFields.ID_USER.getKey()+"= %d;")
+    SelectByIdUser("SELECT * FROM "+Tables.Account_Data+" where "+AccountFields.ID_USER.getKey()+"= %d;"),
+SelectByAC_CODE("SELECT * FROM "+Tables.Account_Data.getName()+ "WHERE "+AccountFields.AC_CODE+"=%d")
 
     ;
     private String query;
