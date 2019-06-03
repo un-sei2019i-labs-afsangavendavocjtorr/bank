@@ -6,7 +6,7 @@ public enum Tables {
     Administrator("ADMINISTRATOR"),
     Transactions("TRANSACTIONS"),
     TransactionType("TRANSACTION_TYPE"),
-    User_Password("USER_PASSWORD")  ;
+    UserPassword("USER_PASSWORD")  ;
 
     private String name;
 

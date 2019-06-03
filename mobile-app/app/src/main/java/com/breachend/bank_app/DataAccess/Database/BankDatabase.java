@@ -42,6 +42,13 @@ public class BankDatabase extends SQLiteOpenHelper{
         return UsersQueries.SelectAll.getFormat(null);
     }
 
+
+    public static String selectPasswordByIdUder(int idUser){
+        Object[] args = {idUser};
+        return UserPasswordQueries.SelectByIdUser.getFormat(args);
+    }
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(AccountQueries.Create.getQuery());
