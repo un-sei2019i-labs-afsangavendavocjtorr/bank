@@ -1,24 +1,17 @@
 package com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields;
 
-
-public enum UsersFields {
-   /* Id(0, "ID", "INTEGER PRIMARY KEY AUTOINCREMENT"),
-    Email(1, "EMAIL", "VARCHAR(100) UNIQUE NOT NULL"),
-    Password(2, "PASSWORD", "VARCHAR(100) NOT NULL");
-*/
-   Id(0, "ID", "INTEGER PRIMARY KEY AUTOINCREMENT"),
-    NAME(1, "NAME", "varchar(50) NOT null"),
-    Password(2, "PASSWORD", "VARCHAR(100) NOT NULL"),
-    CREATED_DATE(3,"CREATED_DATE","datetime null"),
-    STATUS_USER(4,"STATUS_USER","varchar(10) null"),
-    CREATED_BY(5,"CREATED_BY","INTEGER NOT null"),
-    EMAIL(6,"EMAIL","varchar(50) UNIQUE NOT null");
+public enum User_PasswordFields {
+    ID(0, "ID", "INTEGER PRIMARY KEY AUTOINCREMENT"),
+    ID_USER(1, "ID_USER", "INTEGER not null"),
+    PASSWORD_USER(2, "PASSWORD_USER", " INTEGER NOT null"),
+    STATUS_PASSWORD(3,"STATUS_PASSWORD","varchar(15) NOT null"),
+    CREATED_DATE(4,"CREATED_DATE","datetime NOT null");
 
     private int position;
     private String key;
     private String dataType;
 
-    UsersFields(int position, String key, String dataType) {
+    User_PasswordFields (int position, String key, String dataType) {
         this.position = position;
         this.key = key;
         this.dataType = dataType;
@@ -48,4 +41,3 @@ public enum UsersFields {
         this.dataType = dataType;
     }
 }
-

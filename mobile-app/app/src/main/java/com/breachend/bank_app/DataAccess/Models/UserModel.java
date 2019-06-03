@@ -1,7 +1,13 @@
 package com.breachend.bank_app.DataAccess.Models;
 
+import java.util.Date;
+
 public class UserModel {
     private int id;
+    private String name;
+    private Date created_date;
+    private String status_user;
+    private int created_by
     private String email;
     private String password;
 

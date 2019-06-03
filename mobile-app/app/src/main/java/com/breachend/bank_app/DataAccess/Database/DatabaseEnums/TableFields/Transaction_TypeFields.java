@@ -1,7 +1,7 @@
 package com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields;
 
 public enum Transaction_TypeFields {
-    ID(0, "ID", "int PRIMARY KEY"),
+    ID(0, "ID", "INTEGER PRIMARY KEY"),
     NAME(1, "NAME", "varchar(20) null"),
     CREATED_DATE(2, "CREATED_DATE", "datetime null");
 

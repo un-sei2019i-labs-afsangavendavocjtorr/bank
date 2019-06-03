@@ -2,11 +2,11 @@ package com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields;
 
 public enum TransactionsFields {
     ID(0, "ID", "INTEGER PRIMARY KEY AUTOINCREMENT"),
-    TYPE_TRANSACTION(1, "TYPE_TRANSACTION", "int null"),
-    RECEIVER(2, "RECEIVER", "bigint null"),
-    TRANSMITTER_ACCOUNT(3, "TRANSMITTER_ACCOUNT", "bigint null"),
-    TRANSMITTER_ADMIN(4, "TRANSMITTER_ADMIN", "bigint null"),
-    DATE_TRANSACTION(5, "DATE_TRANSACTION", "bigint null"),
+    TYPE_TRANSACTION(1, "TYPE_TRANSACTION", "INTEGER null"),
+    RECEIVER(2, "RECEIVER", "INTEGER null"),
+    TRANSMITTER_ACCOUNT(3, "TRANSMITTER_ACCOUNT", "INTEGER null"),
+    TRANSMITTER_ADMIN(4, "TRANSMITTER_ADMIN", "INTEGER null"),
+    DATE_TRANSACTION(5, "DATE_TRANSACTION", "INTEGER null"),
     STATUS_TRANSACTION(6, "STATUS_TRANSACTION", "varchar(10) null"),
     AMOUNT(7, "AMOUNT", "varchar(10) null")  ;
 

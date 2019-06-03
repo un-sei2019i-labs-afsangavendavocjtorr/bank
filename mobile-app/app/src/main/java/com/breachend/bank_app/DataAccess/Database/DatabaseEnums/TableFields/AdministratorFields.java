@@ -1,7 +1,7 @@
 package com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields;
 
 public enum AdministratorFields {
-    ID(0, "ID", "bigint  identity primary key"),
+    ID(0, "ID", "INTEGER primary key AUTOINCREMENT"),
     EMAIL(1, "BALANCE", "varchar(50) UNIQUE NOT null"),
     PASSWORD_ADMINISTRATOR(2,"PASSWORD_ADMINISTRATOR","varchar(6) null"),
     CREATED_DATE(3,"CREATED_DATE","datetime null");
