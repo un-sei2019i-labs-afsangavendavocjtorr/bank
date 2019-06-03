@@ -19,6 +19,7 @@ public enum User_PasswordQueries {
     Add_FK_USERS("ALTER TABLE "+Tables.User_Password.getName()+" add constraint FK_USER_PAS_RELATIONS_USER foreign key ("+
             User_PasswordFields.ID_USER.getKey()+") references "+Tables.Users.getName()+
             "("+UsersFields.Id.getKey()+");"),
+    DROP_FK_USERS("ALTER TABLE "+Tables.User_Password.getName()+" DROP constraint FK_USER_PAS_RELATIONS_USER ;")
     ;
 
     private String query;

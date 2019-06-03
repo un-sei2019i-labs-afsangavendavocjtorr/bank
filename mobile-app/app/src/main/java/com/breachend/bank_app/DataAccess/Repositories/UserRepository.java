@@ -23,9 +23,15 @@ public class UserRepository {
         SQLiteDatabase database = this.bankDatabase.getWritableDatabase();
         ContentValues userValues = new ContentValues();
 
-        userValues.put(UsersFields.Email.getKey(), user.getEmail());
+        /*userValues.put(UsersFields.Email.getKey(), user.getEmail());
         userValues.put(UsersFields.Password.getKey(), user.getPassword());
-
+*/
+        userValues.put(UsersFields.NAME.getKey(),user.getName());
+        userValues.put(UsersFields.CREATED_DATE.getKey(),user.getCreated_date().toString());
+        //Sobreescribir metodo toString de la fecha para que pueda insertarse en la BD
+        userValues.put(UsersFields.STATUS_USER.getKey(),user.getStatus_user());
+        userValues.put(UsersFields.CREATED_BY.getKey(),user.getCreated_by());
+        userValues.put(UsersFields.EMAIL.getKey(),user.getEmail());
         database.insert(Tables.Users.getName(), null, userValues);
 
         return user;
@@ -33,24 +39,33 @@ public class UserRepository {
 
     public UserModel getById(int id){
         SQLiteDatabase database = this.bankDatabase.getWritableDatabase();
-        Cursor queryResult = database.rawQuery(BankDatabase.selectById(id), null);
+        Cursor queryResult = database.rawQuery(BankDatabase.selectUserById(id), null);
         if(queryResult.moveToFirst()){
             return new UserModel(
                     queryResult.getInt(UsersFields.Id.getPosition()),
-                    queryResult.getString(UsersFields.Email.getPosition()),
-                    queryResult.getString(UsersFields.Password.getPosition())
+                    queryResult.getString(UsersFields.NAME.getPosition()),
+                    queryResult.getString(UsersFields.CREATED_DATE.getPosition()),//contemplar el Si la fecha es retornada
+                    //por BD como un String
+                    queryResult.getString(UsersFields.STATUS_USER.getPosition()),
+                    queryResult.getInt(UsersFields.CREATED_BY.getPosition()),
+                    queryResult.getString(UsersFields.EMAIL.getPosition())
+
                     );
         }
         return null;
     }
     public UserModel getByEmail(String email){
         SQLiteDatabase database = this.bankDatabase.getWritableDatabase();
-        Cursor queryResult = database.rawQuery(BankDatabase.selectByEmail(email), null);
+        Cursor queryResult = database.rawQuery(BankDatabase.selectUserByEmail(email), null);
         if(queryResult.moveToFirst()){
             return new UserModel(
                     queryResult.getInt(UsersFields.Id.getPosition()),
-                    queryResult.getString(UsersFields.Email.getPosition()),
-                    queryResult.getString(UsersFields.Password.getPosition())
+                    queryResult.getString(UsersFields.NAME.getPosition()),
+                    queryResult.getString(UsersFields.CREATED_DATE.getPosition()),//contemplar el Si la fecha es retornada
+                    //por BD como un String
+                    queryResult.getString(UsersFields.STATUS_USER.getPosition()),
+                    queryResult.getInt(UsersFields.CREATED_BY.getPosition()),
+                    queryResult.getString(UsersFields.EMAIL.getPosition())
             );
         }
         return null;
@@ -62,8 +77,12 @@ public class UserRepository {
         while(queryResult.moveToNext()){
             users.add( new UserModel(
                     queryResult.getInt(UsersFields.Id.getPosition()),
-                    queryResult.getString(UsersFields.Email.getPosition()),
-                    queryResult.getString(UsersFields.Password.getPosition())
+                    queryResult.getString(UsersFields.NAME.getPosition()),
+                    queryResult.getString(UsersFields.CREATED_DATE.getPosition()),//contemplar el Si la fecha es retornada
+                    //por BD como un String
+                    queryResult.getString(UsersFields.STATUS_USER.getPosition()),
+                    queryResult.getInt(UsersFields.CREATED_BY.getPosition()),
+                    queryResult.getString(UsersFields.EMAIL.getPosition())
             ));
         }
         return users;

@@ -20,6 +20,7 @@ public enum UsersQueries {
     Add_FK_ADMINISTRATOR("ALTER TABLE "+Tables.Users.getName()+" add constraint FK_USER_RELATIONS_ADMINIST foreign key ("+
             UsersFields.CREATED_BY.getKey()+") references "+Tables.Administrator.getName()+
             "("+AdministratorFields.ID.getKey()+");"),
+    Drop_FK_ADMINISTRATOR("ALTER TABLE "+Tables.Users.getName()+" DROP CONSTRAINT FK_USER_RELATIONS_ADMINIST;")
     ;
 
     private String query;

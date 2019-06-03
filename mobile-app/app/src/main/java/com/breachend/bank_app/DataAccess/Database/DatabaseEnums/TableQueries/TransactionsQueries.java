@@ -33,6 +33,11 @@ public enum TransactionsQueries {
             TransactionsFields.TRANSMITTER_ACCOUNT.getKey()+" IS NULL AND "+TransactionsFields.TRANSMITTER_ADMIN.getKey()+" IS NOT NULL ));"),
     Add_FK_TRANSACTION_TYPE("alter table "+Tables.Transactions.getName()+" add constraint FK_TRANSACT_RELATIONS_TRANSACT foreign key ("+
             TransactionsFields.TYPE_TRANSACTION.getKey()+") references "+Tables.Transaction_Type.getName()+"("+Transaction_TypeFields.ID.getKey()+");"),
+    Drop_FK_RECEIVER_ACCOUNT_DATA("alter table "+Tables.Transactions.getName()+" DROP CONSTRAINT FK_TRANSACT_RELATIONS_ACCOUNT_ ;"),
+    Drop_FK_TRANSMITTER_ADMIN_ACCOUNT_DATA("alter table "+Tables.Transactions.getName()+" DROP CONSTRAINT FK_TRANSACT_RELATIONS_ADMINIST;"),
+    Drop_FK_TRANSMITTER_ACCOUNT_ACCOUNT_DATA("alter table "+Tables.Transactions.getName()+" DROP CONSTRAINT FK_TRANSMITTER_ACCOUNT_ACCOUNT_DATA;"),
+    Drop_CHECK_ACCOUNT_OR_ADMIN("alter table "+Tables.Transactions.getName()+" DROP constraint CHECKING_ADMIN_OR_OTHER_ACCOUNT ;"),
+    Drop_FK_TRANSACTION_TYPE("alter table "+Tables.Transactions.getName()+" DROP constraint FK_TRANSACT_RELATIONS_TRANSACT;")
 
     ;
 

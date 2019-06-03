@@ -8,11 +8,10 @@ public enum UsersFields {
 */
    Id(0, "ID", "INTEGER PRIMARY KEY AUTOINCREMENT"),
     NAME(1, "NAME", "varchar(50) NOT null"),
-    Password(2, "PASSWORD", "VARCHAR(100) NOT NULL"),
-    CREATED_DATE(3,"CREATED_DATE","datetime null"),
-    STATUS_USER(4,"STATUS_USER","varchar(10) null"),
-    CREATED_BY(5,"CREATED_BY","INTEGER NOT null"),
-    EMAIL(6,"EMAIL","varchar(50) UNIQUE NOT null");
+    CREATED_DATE(2,"CREATED_DATE","datetime null"),
+    STATUS_USER(3,"STATUS_USER","varchar(10) null"),
+    CREATED_BY(4,"CREATED_BY","INTEGER NOT null"),
+    EMAIL(5,"EMAIL","varchar(50) UNIQUE NOT null");
 
     private int position;
     private String key;
