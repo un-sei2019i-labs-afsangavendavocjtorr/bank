@@ -3,25 +3,25 @@ package com.breachend.bank_app.DataAccess.Models;
 public class UserModel {
     private int id;
     private String name;
-    private String created_date;//en la aplicacion se manejara como String con cierto formato para su insercion en BD
-    private String status_user;
-    private int created_by;
+    private String createdDate;//en la aplicacion se manejara como String con cierto formato para su insercion en BD
+    private String statusUser;
+    private int createdBy;
     private String email;
 
-    public UserModel(int id, String name, String created_date, String status_user, int created_by, String email) {
+    public UserModel(int id, String name, String createdDate, String statusUser, int createdBy, String email) {
         this.id = id;
         this.name = name;
-        this.created_date = created_date;
-        this.status_user = status_user;
-        this.created_by = created_by;
+        this.createdDate = createdDate;
+        this.statusUser = statusUser;
+        this.createdBy = createdBy;
         this.email = email;
     }
 
-    public UserModel(String name, String created_date, String status_user, int created_by, String email) {
+    public UserModel(String name, String createdDate, String statusUser, int createdBy, String email) {
         this.name = name;
-        this.created_date = created_date;
-        this.status_user = status_user;
-        this.created_by = created_by;
+        this.createdDate = createdDate;
+        this.statusUser = statusUser;
+        this.createdBy = createdBy;
         this.email = email;
     }
 
@@ -44,28 +44,28 @@ public class UserModel {
         this.name = name;
     }
 
-    public String getCreated_date() {
-        return created_date;
+    public String getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreated_date(String created_date) {
-        this.created_date = created_date;
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public String getStatus_user() {
-        return status_user;
+    public String getStatusUser() {
+        return statusUser;
     }
 
-    public void setStatus_user(String status_user) {
-        this.status_user = status_user;
+    public void setStatusUser(String statusUser) {
+        this.statusUser = statusUser;
     }
 
-    public int getCreated_by() {
-        return created_by;
+    public int getCreatedBy() {
+        return createdBy;
     }
 
-    public void setCreated_by(int created_by) {
-        this.created_by = created_by;
+    public void setCreatedBy(int createdBy) {
+        this.createdBy = createdBy;
     }
 
     public String getEmail() {

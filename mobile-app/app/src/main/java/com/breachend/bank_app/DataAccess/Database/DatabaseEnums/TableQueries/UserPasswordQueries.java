@@ -1,30 +1,30 @@
 package com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableQueries;
 
-import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields.User_PasswordFields;
+import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields.UserPasswordFields;
 import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields.UsersFields;
 import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.Tables;
 
-public enum User_PasswordQueries {
+public enum UserPasswordQueries {
     Create("CREATE TABLE "+ Tables.User_Password.getName() + " (" +
-            User_PasswordFields.ID.getKey() + " "+User_PasswordFields.ID.getDataType() + ", " +
-            User_PasswordFields.ID_USER.getKey() + " " + User_PasswordFields.ID_USER.getDataType() + ", " +
-            User_PasswordFields.PASSWORD_USER.getKey() + " " + User_PasswordFields.PASSWORD_USER.getDataType() +", "+
-            User_PasswordFields.STATUS_PASSWORD.getKey()+" "+User_PasswordFields.STATUS_PASSWORD.getDataType()+", "+
-            User_PasswordFields.CREATED_DATE.getKey()+" "+User_PasswordFields.CREATED_DATE.getDataType()+
+            UserPasswordFields.ID.getKey() + " "+ UserPasswordFields.ID.getDataType() + ", " +
+            UserPasswordFields.ID_USER.getKey() + " " + UserPasswordFields.ID_USER.getDataType() + ", " +
+            UserPasswordFields.PASSWORD_USER.getKey() + " " + UserPasswordFields.PASSWORD_USER.getDataType() +", "+
+            UserPasswordFields.STATUS_PASSWORD.getKey()+" "+ UserPasswordFields.STATUS_PASSWORD.getDataType()+", "+
+            UserPasswordFields.CREATED_DATE.getKey()+" "+ UserPasswordFields.CREATED_DATE.getDataType()+
                        ");"),
     Drop("DROP TABLE IF EXISTS "+ Tables.User_Password.getName() +";"),
-    SelectById("SELECT * FROM "+ Tables.User_Password.getName() +" WHERE " + User_PasswordFields.ID.getKey() + " = %d;"),
+    SelectById("SELECT * FROM "+ Tables.User_Password.getName() +" WHERE " + UserPasswordFields.ID.getKey() + " = %d;"),
 
     SelectAll("SELECT * FROM "+ Tables.User_Password.getName() +";"),
     Add_FK_USERS("ALTER TABLE "+Tables.User_Password.getName()+" add constraint FK_USER_PAS_RELATIONS_USER foreign key ("+
-            User_PasswordFields.ID_USER.getKey()+") references "+Tables.Users.getName()+
+            UserPasswordFields.ID_USER.getKey()+") references "+Tables.Users.getName()+
             "("+UsersFields.Id.getKey()+");"),
     DROP_FK_USERS("ALTER TABLE "+Tables.User_Password.getName()+" DROP constraint FK_USER_PAS_RELATIONS_USER ;")
     ;
 
     private String query;
 
-    User_PasswordQueries(String query) {
+    UserPasswordQueries(String query) {
         this.query = query;
     }
 

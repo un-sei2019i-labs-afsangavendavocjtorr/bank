@@ -27,10 +27,10 @@ public class UserRepository {
         userValues.put(UsersFields.Password.getKey(), user.getPassword());
 */
         userValues.put(UsersFields.NAME.getKey(),user.getName());
-        userValues.put(UsersFields.CREATED_DATE.getKey(),user.getCreated_date().toString());
+        userValues.put(UsersFields.CREATED_DATE.getKey(),user.getCreatedDate().toString());
         //Sobreescribir metodo toString de la fecha para que pueda insertarse en la BD
-        userValues.put(UsersFields.STATUS_USER.getKey(),user.getStatus_user());
-        userValues.put(UsersFields.CREATED_BY.getKey(),user.getCreated_by());
+        userValues.put(UsersFields.STATUS_USER.getKey(),user.getStatusUser());
+        userValues.put(UsersFields.CREATED_BY.getKey(),user.getCreatedBy());
         userValues.put(UsersFields.EMAIL.getKey(),user.getEmail());
         database.insert(Tables.Users.getName(), null, userValues);
 

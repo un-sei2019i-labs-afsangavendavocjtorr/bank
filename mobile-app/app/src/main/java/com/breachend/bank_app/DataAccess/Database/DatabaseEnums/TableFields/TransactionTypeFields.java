@@ -1,6 +1,6 @@
 package com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields;
 
-public enum Transaction_TypeFields {
+public enum TransactionTypeFields {
     ID(0, "ID", "INTEGER PRIMARY KEY"),
     NAME(1, "NAME", "varchar(20) null"),
     CREATED_DATE(2, "CREATED_DATE", "datetime null");
@@ -9,7 +9,7 @@ public enum Transaction_TypeFields {
     private String key;
     private String dataType;
 
-   Transaction_TypeFields(int position, String key, String dataType) {
+   TransactionTypeFields(int position, String key, String dataType) {
         this.position = position;
         this.key = key;
         this.dataType = dataType;

@@ -7,9 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableQueries.AccountQueries;
 import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableQueries.AdministratorQueries;
-import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableQueries.Transaction_TypeQueries;
+import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableQueries.TransactionTypeQueries;
 import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableQueries.TransactionsQueries;
-import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableQueries.User_PasswordQueries;
+import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableQueries.UserPasswordQueries;
 import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableQueries.UsersQueries;
 
 public class BankDatabase extends SQLiteOpenHelper{
@@ -47,9 +47,9 @@ public class BankDatabase extends SQLiteOpenHelper{
         db.execSQL(AccountQueries.Create.getQuery());
         db.execSQL(AdministratorQueries.Create.getQuery());
         db.execSQL(TransactionsQueries.Create.getQuery());
-        db.execSQL(Transaction_TypeQueries.Create.getQuery());
+        db.execSQL(TransactionTypeQueries.Create.getQuery());
         db.execSQL(UsersQueries.Create.getQuery());
-        db.execSQL(User_PasswordQueries.Create.getQuery());
+        db.execSQL(UserPasswordQueries.Create.getQuery());
         db.execSQL(AccountQueries.Add_FK_USERS.getQuery());
         db.execSQL(TransactionsQueries.Add_FK_RECEIVER_ACCOUNT_DATA.getQuery());
         db.execSQL(TransactionsQueries.Add_FK_TRANSMITTER_ADMIN_ACCOUNT_DATA.getQuery());
@@ -57,7 +57,7 @@ public class BankDatabase extends SQLiteOpenHelper{
         db.execSQL(TransactionsQueries.Add_CHECK_ACCOUNT_OR_ADMIN.getQuery());
         db.execSQL(TransactionsQueries.Add_FK_TRANSACTION_TYPE.getQuery());
         db.execSQL(UsersQueries.Add_FK_ADMINISTRATOR.getQuery());
-        db.execSQL(User_PasswordQueries.Add_FK_USERS.getQuery());
+        db.execSQL(UserPasswordQueries.Add_FK_USERS.getQuery());
     }
 
     @Override
@@ -74,13 +74,13 @@ public class BankDatabase extends SQLiteOpenHelper{
             db.execSQL(TransactionsQueries.Drop_CHECK_ACCOUNT_OR_ADMIN.getQuery());
             db.execSQL(TransactionsQueries.Drop_FK_TRANSACTION_TYPE.getQuery());
             db.execSQL(UsersQueries.Drop_FK_ADMINISTRATOR.getQuery());
-            db.execSQL(User_PasswordQueries.DROP_FK_USERS.getQuery());
+            db.execSQL(UserPasswordQueries.DROP_FK_USERS.getQuery());
             db.execSQL(AccountQueries.Drop.getQuery());
             db.execSQL(AdministratorQueries.Drop.getQuery());
             db.execSQL(TransactionsQueries.Drop.getQuery());
-            db.execSQL(Transaction_TypeQueries.Drop.getQuery());
+            db.execSQL(TransactionTypeQueries.Drop.getQuery());
             db.execSQL(UsersQueries.Drop.getQuery());
-            db.execSQL(User_PasswordQueries.Drop.getQuery());
+            db.execSQL(UserPasswordQueries.Drop.getQuery());
 
             onCreate(db);
             return true;
