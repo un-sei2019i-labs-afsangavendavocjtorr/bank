@@ -57,6 +57,8 @@ public class BankDatabase extends SQLiteOpenHelper{
         db.execSQL(TransactionTypeQueries.Create.getQuery());
         db.execSQL(UsersQueries.Create.getQuery());
         db.execSQL(UserPasswordQueries.Create.getQuery());
+
+        /*
         db.execSQL(AccountQueries.Add_FK_USERS.getQuery());
         db.execSQL(TransactionsQueries.Add_FK_RECEIVER_ACCOUNT_DATA.getQuery());
         db.execSQL(TransactionsQueries.Add_FK_TRANSMITTER_ADMIN_ACCOUNT_DATA.getQuery());
@@ -65,6 +67,7 @@ public class BankDatabase extends SQLiteOpenHelper{
         db.execSQL(TransactionsQueries.Add_FK_TRANSACTION_TYPE.getQuery());
         db.execSQL(UsersQueries.Add_FK_ADMINISTRATOR.getQuery());
         db.execSQL(UserPasswordQueries.Add_FK_USERS.getQuery());
+        */
     }
 
     @Override
