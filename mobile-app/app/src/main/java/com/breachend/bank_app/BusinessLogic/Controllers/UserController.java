@@ -3,6 +3,8 @@ package com.breachend.bank_app.BusinessLogic.Controllers;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.breachend.bank_app.DataAccess.Models.PasswordModel;
+import com.breachend.bank_app.DataAccess.Repositories.PasswordRepository;
 import com.breachend.bank_app.DataAccess.Repositories.UserRepository;
 import com.breachend.bank_app.DataAccess.Models.UserModel;
 
@@ -11,15 +13,22 @@ import java.util.ArrayList;
 public class UserController {
     private Context context;
     private UserRepository userRepository;
+    private PasswordRepository passwordRepository;
 
     public UserController(Context context){
         this.context = context;
         this.userRepository = new UserRepository(context);
+        this.passwordRepository = new PasswordRepository(context);
     }
 
     public UserModel register(String email, String password){
         if(validateEmail(email) && validatePassword(password)){
-            return this.userRepository.create(new UserModel(email, password));
+            //crear una contraseña
+            // return this.userRepository.create(new UserModel(email, password));
+            this.userRepository.create(new UserModel("Gabo", "hoy" , "1", 1,  email));
+            UserModel newUser = this.userRepository.getByEmail(email);
+            this.passwordRepository.create(new PasswordModel(newUser.getId(), password, "1", "Hoy"));
+            return newUser;
         }else{
             return null;
         }
@@ -31,7 +40,9 @@ public class UserController {
             if(user == null){
                 return register(email, password);
             }
-            if (!user.getPassword().equals(password)){
+
+            PasswordModel passwordModel = this.passwordRepository.getByIdUser(user.getId());
+            if (!passwordModel.getPasswordUser().equals(password)){
                 Toast.makeText(context, "Incorrect password", Toast.LENGTH_SHORT).show();
                 return null;
             }
