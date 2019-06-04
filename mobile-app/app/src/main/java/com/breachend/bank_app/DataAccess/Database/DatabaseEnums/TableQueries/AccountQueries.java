@@ -12,7 +12,7 @@ public enum AccountQueries {
     ),
     Drop("DROP TABLE IF EXISTS "+ Tables.AccountData.getName() +";"),
     SelectByIdUser("SELECT * FROM "+Tables.AccountData.getName() +" where "+AccountFields.ID_USER.getKey()+"= %d;"),
-    SelectByAC_CODE("SELECT * FROM "+Tables.AccountData.getName()+ "WHERE "+AccountFields.AC_CODE.getKey()+"=%d;"),
+    SelectByAC_CODE("SELECT * FROM "+Tables.AccountData.getName()+ "WHERE "+AccountFields.AC_CODE.getKey()+"= %d;"),
     Add_FK_USERS("alter table "+Tables.AccountData.getName()+" add constraint FK_ACCOUNT__RELATIONS_USER foreign key("+
     AccountFields.ID_USER.getKey()+") references "+Tables.Users.getName()+"("+UsersFields.Id.getKey()+");"),
     Drop_FK_USERS("alter table "+Tables.AccountData.getName()+" DROP CONSTRAINT FK_ACCOUNT__RELATIONS_USER;"),

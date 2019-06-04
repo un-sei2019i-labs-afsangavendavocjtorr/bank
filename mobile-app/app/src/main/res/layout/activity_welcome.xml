@@ -15,11 +15,37 @@
             android:id="@+id/text_email"
             android:textSize="8pt"
             />
-        <ListView
-            android:id="@+id/user_list"
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_balance"
+            android:textSize="8pt"
+            />
+
+        <Spinner
+            android:id="@+id/receiverEmailsSpinner"
+            android:layout_span="2"
+            android:layout_width="wrap_content"
+            android:layout_height="60px"
+            android:spinnerMode="dropdown"/>
+
+        <EditText
+            android:id="@+id/amount_editText"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+
+        <Button
+            android:id="@+id/send_money_button"
+            style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </ListView>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Send"
+            android:textStyle="bold"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorWhite"/>
+
         <Button
             android:id="@+id/email_sign_in_button"
             style="?android:textAppearanceSmall"
