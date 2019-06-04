@@ -64,8 +64,13 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText amountEditText = (EditText) findViewById(R.id.amount_editText);
-                double amount =Double.parseDouble(amountEditText.getText().toString());
-
+                double amount = 0.0;
+                try {
+                    amount = Double.parseDouble(amountEditText.getText().toString());
+                } catch (Exception e) {
+                    Toast.makeText (context, "Ingresa un valor monetario correcto", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String receiverEmail = dropdown.getSelectedItem().toString();
 
                 AccountDataModel result = transactionController.makeTransaction(email, receiverEmail, amount);
