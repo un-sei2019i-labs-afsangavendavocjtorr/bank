@@ -2,18 +2,27 @@ package com.breachend.bank_app.DataAccess.Models;
 
 public class UserModel {
     private int id;
+    private String name;
+    private String createdDate;//en la aplicacion se manejara como String con cierto formato para su insercion en BD
+    private String statusUser;
+    private int createdBy;
     private String email;
-    private String password;
 
-    public UserModel(int id, String email, String password) {
+    public UserModel(int id, String name, String createdDate, String statusUser, int createdBy, String email) {
         this.id = id;
+        this.name = name;
+        this.createdDate = createdDate;
+        this.statusUser = statusUser;
+        this.createdBy = createdBy;
         this.email = email;
-        this.password = password;
     }
 
-    public UserModel(String email, String password) {
+    public UserModel(String name, String createdDate, String statusUser, int createdBy, String email) {
+        this.name = name;
+        this.createdDate = createdDate;
+        this.statusUser = statusUser;
+        this.createdBy = createdBy;
         this.email = email;
-        this.password = password;
     }
 
     public UserModel() {
@@ -27,19 +36,43 @@ public class UserModel {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getStatusUser() {
+        return statusUser;
+    }
+
+    public void setStatusUser(String statusUser) {
+        this.statusUser = statusUser;
+    }
+
+    public int getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(int createdBy) {
+        this.createdBy = createdBy;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

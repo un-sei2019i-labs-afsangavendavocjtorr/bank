@@ -1,7 +1,12 @@
 package com.breachend.bank_app.DataAccess.Database.DatabaseEnums;
 
 public enum Tables {
-    Users("USERS");
+    Users("USERS"),
+    AccountData("ACCOUNT_DATA"),
+    Administrator("ADMINISTRATOR"),
+    Transactions("TRANSACTIONS"),
+    TransactionType("TRANSACTION_TYPE"),
+    UserPassword("USER_PASSWORD")  ;
 
     private String name;
 
