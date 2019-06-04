@@ -1,23 +1,23 @@
 package com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields;
 
+public enum TransactionsFields {
+    ID(0, "ID", "INTEGER PRIMARY KEY AUTOINCREMENT"),
+    TYPE_TRANSACTION(1, "TYPE_TRANSACTION", "INTEGER null"),
+    RECEIVER(2, "RECEIVER", "INTEGER null"),
+    TRANSMITTER_ACCOUNT(3, "TRANSMITTER_ACCOUNT", "INTEGER null"),
+    TRANSMITTER_ADMIN(4, "TRANSMITTER_ADMIN", "INTEGER null"),
+    DATE_TRANSACTION(5, "DATE_TRANSACTION", "INTEGER null"),
+    STATUS_TRANSACTION(6, "STATUS_TRANSACTION", "varchar(10) null"),
+    AMOUNT(7, "AMOUNT", "DOUBLE null")  ;
 
-public enum UsersFields {
-   /* Id(0, "ID", "INTEGER PRIMARY KEY AUTOINCREMENT"),
-    Email(1, "EMAIL", "VARCHAR(100) UNIQUE NOT NULL"),
-    Password(2, "PASSWORD", "VARCHAR(100) NOT NULL");
-*/
-   Id(0, "ID", "INTEGER PRIMARY KEY AUTOINCREMENT"),
-    NAME(1, "NAME", "varchar(50) NOT null"),
-    CREATED_DATE(2,"CREATED_DATE","datetime null"),
-    STATUS_USER(3,"STATUS_USER","varchar(10) null"),
-    CREATED_BY(4,"CREATED_BY","INTEGER NOT null"),
-    EMAIL(5,"EMAIL","varchar(50) UNIQUE NOT null");
+
+
 
     private int position;
     private String key;
     private String dataType;
 
-    UsersFields(int position, String key, String dataType) {
+   TransactionsFields(int position, String key, String dataType) {
         this.position = position;
         this.key = key;
         this.dataType = dataType;
@@ -47,4 +47,3 @@ public enum UsersFields {
         this.dataType = dataType;
     }
 }
-
