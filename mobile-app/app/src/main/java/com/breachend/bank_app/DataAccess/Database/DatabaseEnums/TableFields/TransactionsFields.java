@@ -8,7 +8,7 @@ public enum TransactionsFields {
     TRANSMITTER_ADMIN(4, "TRANSMITTER_ADMIN", "INTEGER null"),
     DATE_TRANSACTION(5, "DATE_TRANSACTION", "INTEGER null"),
     STATUS_TRANSACTION(6, "STATUS_TRANSACTION", "varchar(10) null"),
-    AMOUNT(7, "AMOUNT", "varchar(10) null")  ;
+    AMOUNT(7, "AMOUNT", "DOUBLE null")  ;
 
 
 
