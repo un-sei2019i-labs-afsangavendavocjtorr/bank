@@ -1,6 +1,7 @@
 package com.breachend.bank_app.BusinessLogic.Controllers;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.breachend.bank_app.DataAccess.Models.AccountDataModel;
 import com.breachend.bank_app.DataAccess.Models.TransactionModel;
@@ -23,10 +24,10 @@ public class TransactionController {
         this.accountDataRepository = new AccountDataRepository(context);
     }
 
-    AccountDataModel makeTransaction(String senderEmail, String receiverEmail, double amount){
+    public AccountDataModel makeTransaction(String senderEmail, String receiverEmail, double amount){
         UserModel sender = this.userRepository.getByEmail(senderEmail);
 
-        if (isValidAmount(amount, sender)) return null;
+        if (!isValidAmount(amount, sender)) return null;
 
         UserModel receiver = this.userRepository.getByEmail(receiverEmail);
 
@@ -43,8 +44,17 @@ public class TransactionController {
         return accountSender;
     }
 
+    public AccountDataModel getAccountBalance(String email){
+        UserModel user = this.userRepository.getByEmail(email);
+        AccountDataModel account = accountDataRepository.getByIdUser(user.getId());
+        return account;
+    }
+
     private boolean isValidAmount(double amount, UserModel user ){
         AccountDataModel account = accountDataRepository.getByIdUser(user.getId());
+        // Toast.makeText (context, account.getBalance() + "  " + amount, Toast.LENGTH_SHORT).show();
         return !(account.getBalance() - amount < 0);
     }
+
+
 }

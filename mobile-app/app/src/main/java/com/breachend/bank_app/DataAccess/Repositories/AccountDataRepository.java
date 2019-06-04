@@ -22,7 +22,7 @@ public class AccountDataRepository {
         AccountDataValues.put(AccountFields.BALANCE.getKey(),account.getBalance());
         AccountDataValues.put(AccountFields.ID_USER.getKey(),account.getId_user());
 
-        database.insert(Tables.Users.getName(), null, AccountDataValues);
+        database.insert(Tables.AccountData.getName(), null, AccountDataValues);
 
         return account;
     }
