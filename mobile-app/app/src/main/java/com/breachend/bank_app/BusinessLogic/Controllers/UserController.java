@@ -42,7 +42,7 @@ public class UserController {
             }
 
             PasswordModel passwordModel = this.passwordRepository.getByIdUser(user.getId());
-            if (passwordModel  == null){
+            if (!passwordModel.getPasswordUser().equals(password)){
                 Toast.makeText(context, "Incorrect password", Toast.LENGTH_SHORT).show();
                 return null;
             }
