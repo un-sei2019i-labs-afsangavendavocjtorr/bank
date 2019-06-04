@@ -98,4 +98,12 @@ public class BankDatabase extends SQLiteOpenHelper{
             return false;
         }
     }
+
+
+
+    public static String selectAccountbyIdUser(int id){
+        Object []args={id};
+       return AccountQueries.SelectByIdUser.getFormat(args);
+
+    }
 }
