@@ -2,7 +2,7 @@ package com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields;
 
 public enum AccountFields {
     AC_CODE(0, "AC_CODE", "INTEGER primary key AUTOINCREMENT"),
-    BALANCE(1, "BALANCE", "money null"),
+    BALANCE(1, "BALANCE", "DOUBLE null"),
 ID_USER(2,"ID_USER","INTEGER null");
 
 
