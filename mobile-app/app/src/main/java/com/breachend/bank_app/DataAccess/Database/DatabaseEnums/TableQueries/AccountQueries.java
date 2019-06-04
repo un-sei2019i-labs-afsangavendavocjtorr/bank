@@ -5,14 +5,14 @@ import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.TableFields.User
 import com.breachend.bank_app.DataAccess.Database.DatabaseEnums.Tables;
 
 public enum AccountQueries {
-    Create("CREATE TABLE "+Tables.AccountData +"("+
+    Create("CREATE TABLE "+Tables.AccountData.getName() +"("+
             AccountFields.AC_CODE.getKey()+" "+ AccountFields.AC_CODE.getDataType()+","+
             AccountFields.BALANCE.getKey()+" "+AccountFields.BALANCE.getDataType()+","+
             AccountFields.ID_USER.getKey()+" "+AccountFields.ID_USER.getDataType()+" );"
     ),
 Drop("DROP TABLE IF EXISTS "+ Tables.AccountData.getName() +";"),
-    SelectByIdUser("SELECT * FROM "+Tables.AccountData +" where "+AccountFields.ID_USER.getKey()+"= %d;"),
-SelectByAC_CODE("SELECT * FROM "+Tables.AccountData.getName()+ "WHERE "+AccountFields.AC_CODE+"=%d"),
+    SelectByIdUser("SELECT * FROM "+Tables.AccountData.getName() +" where "+AccountFields.ID_USER.getKey()+"= %d;"),
+SelectByAC_CODE("SELECT * FROM "+Tables.AccountData.getName()+ "WHERE "+AccountFields.AC_CODE.getKey()+"=%d"),
 Add_FK_USERS("alter table "+Tables.AccountData.getName()+" add constraint FK_ACCOUNT__RELATIONS_USER foreign key("+
 AccountFields.ID_USER.getKey()+") references "+Tables.Users.getName()+"("+UsersFields.Id.getKey()+");"),
     Drop_FK_USERS("alter table "+Tables.AccountData.getName()+" DROP CONSTRAINT FK_ACCOUNT__RELATIONS_USER;")
