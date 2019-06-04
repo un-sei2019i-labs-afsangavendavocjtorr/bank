@@ -20,6 +20,14 @@ public class PasswordModel {
         this.createdDate = createdDate;
     }
 
+
+    public PasswordModel(int idUser, String passwordUser, String statusPassword, String createdDate) {
+        this.idUser = idUser;
+        this.passwordUser = passwordUser;
+        this.statusPassword = statusPassword;
+        this.createdDate = createdDate;
+    }
+
     public int getId() {
         return id;
     }
