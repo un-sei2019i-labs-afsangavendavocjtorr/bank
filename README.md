@@ -5,6 +5,6 @@ In this project worked:
 
 - jtorresf
 - afsanchezsa
-- gavendanoc
+- gavendanocc
 
 > Thanks
